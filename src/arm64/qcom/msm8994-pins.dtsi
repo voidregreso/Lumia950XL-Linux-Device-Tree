@@ -1,0 +1,125 @@
+/*
+ * Copyright (c) 2013-2016, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&msmgpio {
+	blsp1_uart2_default: blsp1_uart2_default {
+		pinmux {
+			function = "blsp_uart2";
+			pins = "gpio4", "gpio5";
+		};
+		pinconf {
+			pins = "gpio4", "gpio5";
+			drive-strength = <16>;
+			bias-disable;
+		};
+	};
+
+	blsp1_uart2_sleep: blsp1_uart2_sleep {
+		pinmux {
+			function = "gpio";
+			pins = "gpio4", "gpio5";
+		};
+		pinconf {
+			pins = "gpio4", "gpio5";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+
+	blsp2_uart2_default: blsp2_uart2_default {
+		pinmux {
+			function = "blsp_uart8";
+			pins = "gpio45", "gpio46", "gpio47", "gpio48";
+		};
+		pinconf {
+			pins = "gpio45", "gpio46", "gpio47", "gpio48";
+			drive-strength = <16>;
+			bias-disable;
+		};
+	};
+
+	blsp2_uart2_sleep: blsp2_uart2_sleep {
+		pinmux {
+			function = "gpio";
+			pins = "gpio45", "gpio46", "gpio47", "gpio48";
+		};
+		pinconf {
+			pins = "gpio45", "gpio46", "gpio47", "gpio48";
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+
+	i2c1_default: i2c1_default {
+		pinmux {
+			function = "blsp_i2c1";
+			pins = "gpio2", "gpio3";
+		};
+		pinconf {
+			pins = "gpio2", "gpio3";
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+
+	i2c1_sleep: i2c1_sleep {
+		pinmux {
+			function = "gpio";
+			pins = "gpio2", "gpio3";
+		};
+		pinconf {
+			pins = "gpio2", "gpio3";
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+
+	pcie1_clkreq_default: pcie1_clkreq_default {
+		mux {
+			pins = "gpio36";
+			function = "pci_e1";
+		};
+
+		config {
+			pins = "gpio36";
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+
+	pcie1_perst_default: pcie0_perst_default {
+		mux {
+			pins = "gpio35";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio35";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+
+	pcie1_wake_default: pcie0_wake_default {
+		mux {
+			pins = "gpio37";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio37";
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+};
